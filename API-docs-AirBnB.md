@@ -2,7 +2,8 @@
 
 ## Database Schema Design
 
-`<insert database schema design here>`
+![DBDiagram](/dbDiagram.png)
+
 
 ## API Documentation
 
@@ -91,7 +92,7 @@ information.
 * Require Authentication: false
 * Request
   * Method: POST
-  * URL: /users/:userId
+  * URL: /users/:userId/login
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -157,7 +158,7 @@ user's information.
 * Require Authentication: false
 * Request
   * Method: POST
-  * URL: /users/:userId
+  * URL: /users/:userId/signup
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -466,7 +467,7 @@ Create and return a new image for a spot specified by id.
 * Require proper authorization: Spot must belong to the current user
 * Request
   * Method: POST
-  * URL: /spots/:spotId/spotImages
+  * URL: /spots/:spotId/spotImages/:spotImageId
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -745,7 +746,7 @@ Create and return a new review for a spot specified by id.
 * Require Authentication: true
 * Request
   * Method: POST
-  * URL: /reviews/:reviewId/spots/:spotId
+  * URL: /spots/:spotId/reviews/:reviewId
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -823,7 +824,7 @@ Create and return a new image for a review specified by id.
 * Require proper authorization: Review must belong to the current user
 * Request
   * Method: POST
-  * URL: /reviews/:reviewId/reviewImagesId
+  * URL: /reviews/:reviewId/reviewImagesId/:reviewImageId
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -1095,7 +1096,7 @@ Create and return a new booking from a spot specified by id.
 * Require proper authorization: Spot must NOT belong to the current user
 * Request
   * Method: POST
-  * URL: /bookings/:bookingId/spots/:spotId
+  * URL: /spots/:spotId/bookings/:bookingId
   * Body:
 
     ```json
